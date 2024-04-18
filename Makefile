@@ -5,14 +5,20 @@ include .env
 compose-up:
 	docker-compose up --build -d postgres rabbitmq
 
+compose-down:
+	docker-compose down
+
+build: compose-up
+	docker-compose up --build
+
 up:
 	docker-compose up -d
 
-run:
-	go run cmd/app/main.go
-
 get:
 	go get -d -v ./...
+
+run: compose-up get
+	go run cmd/app/main.go
 
 test:
 	go test -cover ./...   
