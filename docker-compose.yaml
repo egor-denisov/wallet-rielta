@@ -8,8 +8,6 @@ services:
       - pg-data:/var/lib/postgresql/data
     env_file:
       - .env
-    expose:
-      - 5436
     ports:
       - 5436:5432
     restart: unless-stopped
