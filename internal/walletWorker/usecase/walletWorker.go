@@ -7,12 +7,10 @@ import (
 	"github.com/egor-denisov/wallet-rielta/internal/entity"
 )
 
-// WalletUseCase -.
 type WalletWorkerUseCase struct {
 	repo WalletWorkerRepo
 }
 
-// New -.
 func NewWalletWorker(r WalletWorkerRepo) *WalletWorkerUseCase {
 	return &WalletWorkerUseCase{
 		repo: r,
