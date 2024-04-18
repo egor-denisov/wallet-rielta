@@ -4,18 +4,15 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"time"
 
 	"github.com/egor-denisov/wallet-rielta/internal/entity"
 	"github.com/egor-denisov/wallet-rielta/pkg/postgres"
 )
 
-// WalletRepo -.
 type WalletRepo struct {
 	*postgres.Postgres
 }
 
-// NewWalletRepo -.
 func New(pg *postgres.Postgres) *WalletRepo {
 	return &WalletRepo{pg}
 }
@@ -114,9 +111,6 @@ func (r *WalletRepo) GetWalletHistoryByID(ctx context.Context, walletID string) 
 // GetWalletByID - getting wallet info by walletID.
 func (r *WalletRepo) GetWalletByID(ctx context.Context, walletID string) (*entity.Wallet, error) {
 	wallet := new(entity.Wallet)
-	if walletID == "test" {
-		time.Sleep(4 * time.Second)
-	}
 
 	err := r.DB.ModelContext(ctx, wallet).
 		Where("id = ?", walletID).
