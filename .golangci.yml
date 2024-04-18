@@ -1,0 +1,48 @@
+linters-settings:
+  varnamelen:
+    min-name-length: 2
+    max-distance: 20
+  nlreturn:
+    block-size: 2
+  depguard:
+      rules:
+        main:
+          allow:
+            - $gostd
+            - github.com/egor-denisov/
+            - github.com/ilyakaznacheev/cleanenv
+            - github.com/joho/godotenv
+            - github.com/go-playground/assert
+            - github.com/gin-gonic/gin
+            - github.com/prometheus/client_golang/prometheus/promhttp
+            - github.com/swaggo/files
+            - github.com/swaggo/gin-swagger
+            - "github.com/golang/mock/gomock"
+            - "github.com/go-pg/pg/v10"
+            - "github.com/streadway/amqp"
+            - "github.com/google/uuid"
+            - github.com/magiconair/properties/assert
+  wsl:
+    force-err-cuddling: true
+  nolintlint:
+    require-explanation: true
+    require-specific: true
+  funlen:
+    lines: 80
+    ignore-comments: true
+
+linters:
+  enable-all: true
+  disable:
+    - goimports
+    - testpackage
+    - gci
+    - gofmt
+    - gofumpt
+    - exhaustruct
+    - varnamelen
+    - gochecknoglobals
+    - paralleltest
+
+run:
+  issues-exit-code: 1
